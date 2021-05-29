@@ -1,0 +1,37 @@
+﻿@page "/"
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+@inject IJSRuntime jsRuntime;
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+
+        var connection = await new Module(jsRuntime).createRTCPeerConnection();
+
+        connection.onicegatheringstatechange += onicegatheringstatechange;
+
+        connection.onicecandidate += onicecandidate;
+
+        var offer = await connection.createOffer();
+        await connection.setLocalDescription(new RTCLocalSessionDescriptionInit(offer));
+
+        Console.WriteLine(connection);
+    }
+
+    public void onicegatheringstatechange(object sender, EventArgs e)
+    {
+        Console.WriteLine(e);
+    }
+
+    public void onicecandidate(object sender, RTCPeerConnectionIceEvent e)
+    {
+        Console.WriteLine(e);
+
+    }
+} 

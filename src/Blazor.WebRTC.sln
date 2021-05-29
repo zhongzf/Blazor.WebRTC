@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.WebRTC.Demo", "Blazor.WebRTC.Demo\Blazor.WebRTC.Demo.csproj", "{CF58890C-206C-41E0-87A9-E47AE542813D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.WebRTC", "Blazor.WebRTC\Blazor.WebRTC.csproj", "{28544692-2F9C-4C67-A4A4-FC0BE187D8BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF58890C-206C-41E0-87A9-E47AE542813D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF58890C-206C-41E0-87A9-E47AE542813D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF58890C-206C-41E0-87A9-E47AE542813D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF58890C-206C-41E0-87A9-E47AE542813D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28544692-2F9C-4C67-A4A4-FC0BE187D8BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28544692-2F9C-4C67-A4A4-FC0BE187D8BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28544692-2F9C-4C67-A4A4-FC0BE187D8BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28544692-2F9C-4C67-A4A4-FC0BE187D8BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B170D04D-AEC3-479C-91BF-BF44D59BD321}
+	EndGlobalSection
+EndGlobal
