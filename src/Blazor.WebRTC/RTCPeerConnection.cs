@@ -28,7 +28,14 @@ namespace Blazor.WebRTC
 
         public async Task setLocalDescription(RTCLocalSessionDescriptionInit description = null)
         {
-            await jsObjectReference.InvokeVoidAsync(nameof(setLocalDescription), description);
+            if (description.JSObjectReference != null)
+            {
+                await jsObjectReference.InvokeVoidAsync(nameof(setLocalDescription), description.JSObjectReference);
+            }
+            else
+            {
+                await jsObjectReference.InvokeVoidAsync(nameof(setLocalDescription), description);
+            }
         }
 
         //readonly attribute RTCSessionDescription? localDescription;
@@ -37,7 +44,14 @@ namespace Blazor.WebRTC
 
         public async Task setRemoteDescription(RTCSessionDescriptionInit description = null)
         {
-            await jsObjectReference.InvokeVoidAsync(nameof(setRemoteDescription), description);
+            if (description.JSObjectReference != null)
+            {
+                await jsObjectReference.InvokeVoidAsync(nameof(setRemoteDescription), description.JSObjectReference);
+            }
+            else
+            {
+                await jsObjectReference.InvokeVoidAsync(nameof(setRemoteDescription), description);
+            }
         }
 
         //readonly attribute RTCSessionDescription? remoteDescription;

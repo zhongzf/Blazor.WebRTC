@@ -25,3 +25,10 @@ export function bindRTCPeerConnection(connection, dotnetReference) {
         await dotnetReference.invokeMethodAsync("HandleEventAsync", "onconnectionstatechange", e);
     };
 }
+
+export function getJsObjectPropertyValue(jsObject, name) {
+    console.log('jsObject: ' + jsObject + ', name: ' + name);
+    var value = jsObject[name];
+    console.log('value: ' + value);
+    return value;
+}

@@ -8,30 +8,32 @@ Welcome to your new app.
 
 @inject IJSRuntime jsRuntime;
 @code {
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    protected override void OnAfterRender(bool firstRender)
     {
         if (!firstRender) return;
 
-        var connection = await new Module(jsRuntime).createRTCPeerConnection();
+        Task.Run(async () =>
+        {
+            var connection = await new Module(jsRuntime).createRTCPeerConnection();
 
-        connection.onicegatheringstatechange += onicegatheringstatechange;
+            connection.onicegatheringstatechange += onicegatheringstatechange;
 
-        connection.onicecandidate += onicecandidate;
+            connection.onicecandidate += onicecandidate;
 
-        var offer = await connection.createOffer();
-        await connection.setLocalDescription(new RTCLocalSessionDescriptionInit(offer));
+            var offer = await connection.createOffer();
+            await connection.setLocalDescription(new RTCLocalSessionDescriptionInit(offer));
 
-        Console.WriteLine(connection);
+            System.Diagnostics.Debug.WriteLine(connection);
+        });
     }
 
     public void onicegatheringstatechange(object sender, EventArgs e)
     {
-        Console.WriteLine(e);
+        System.Diagnostics.Debug.WriteLine(e);
     }
 
     public void onicecandidate(object sender, RTCPeerConnectionIceEvent e)
     {
-        Console.WriteLine(e);
-
+        System.Diagnostics.Debug.WriteLine(e);
     }
 } 
